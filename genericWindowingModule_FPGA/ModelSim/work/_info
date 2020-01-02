@@ -1,0 +1,278 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/ModelSim
+Efifo_win
+Z1 w1577937349
+Z2 DPx4 ieee 9 math_real 0 22 :iME`dTX54_U49lJNF5JI3
+Z3 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z4 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z5 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z6 d/home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/ModelSim
+Z7 8/home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/FIFO_win.vhd
+Z8 F/home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/FIFO_win.vhd
+l0
+L21
+VTB[b89UbD07cjL]AO:=Ym2
+Z9 OV;C;10.1d;51
+32
+Z10 !s108 1577939174.088751
+Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/FIFO_win.vhd|
+Z12 !s107 /home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/FIFO_win.vhd|
+Z13 o-work work -2002 -explicit -O0
+Z14 tExplicit 1
+!s100 kkL4WP@om4RTR_dXgFBH^1
+!i10b 1
+Abehavioral
+R2
+R3
+R4
+R5
+DEx4 work 8 fifo_win 0 22 TB[b89UbD07cjL]AO:=Ym2
+l55
+L38
+V>68clhPWAY:k772@3EVNH2
+R9
+32
+R10
+R11
+R12
+R13
+R14
+!s100 1eLIKX=jOG_ll5Q?M:Cj_0
+!i10b 1
+Pgen_win_types
+R3
+R2
+R4
+R5
+R1
+R6
+Z15 8/home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_window_pkg.vhd
+Z16 F/home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_window_pkg.vhd
+l0
+L15
+ViSb3WShbzHcQHO:22^36Q1
+R9
+32
+Z17 !s108 1577939174.217700
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_window_pkg.vhd|
+Z19 !s107 /home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_window_pkg.vhd|
+R13
+R14
+!s100 l;E8@4aO;@MJEFG478K0J1
+!i10b 1
+Egeneric_rows
+R1
+Z20 DPx4 work 25 sum_std_logic_vector_bits 0 22 TcfoM7Q_I7`fBTe<0:h1G0
+Z21 DPx4 work 12 morph_filter 0 22 X20n?TjH5G3`YJdg46V_:0
+R2
+Z22 DPx4 work 13 gen_win_types 0 22 iSb3WShbzHcQHO:22^36Q1
+R3
+R4
+R5
+R6
+Z23 8/home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_rows.vhd
+Z24 F/home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_rows.vhd
+l0
+L60
+VY^0bAE@C0K4MYcbZP_GY=1
+R9
+32
+Z25 !s108 1577939174.125959
+Z26 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_rows.vhd|
+Z27 !s107 /home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_rows.vhd|
+R13
+R14
+!s100 <LX^jzKR3<6cKE5]?BlG^1
+!i10b 1
+Abehavioral
+R20
+R21
+R2
+R22
+R3
+R4
+R5
+DEx4 work 12 generic_rows 0 22 Y^0bAE@C0K4MYcbZP_GY=1
+l88
+L83
+VIcS_PE8kAULlEGW:Y:Acz1
+R9
+32
+R25
+R26
+R27
+R13
+R14
+!s100 i;NgAEn;EFLYECj?3`Sol0
+!i10b 1
+Egeneric_window
+Z28 w1577937932
+R21
+R22
+R2
+R3
+R4
+R5
+R6
+Z29 8/home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_window.vhd
+Z30 F/home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_window.vhd
+l0
+L24
+V;d3:YHRb`;X`J2VnCnjW70
+R9
+32
+Z31 !s108 1577939174.169606
+Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_window.vhd|
+Z33 !s107 /home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_window.vhd|
+R13
+R14
+!s100 387UD;lb=;F[RC;j5eO]70
+!i10b 1
+Abehavioral
+R21
+R22
+R2
+R3
+R4
+R5
+DEx4 work 14 generic_window 0 22 ;d3:YHRb`;X`J2VnCnjW70
+l104
+L46
+VJGASDSg;R5Hd20NGin_I91
+R9
+32
+R31
+R32
+R33
+R13
+R14
+!s100 g=]PNe]>LGB6>PTQf8U>C3
+!i10b 1
+Egeneric_window_tb
+Z34 w1577939170
+R2
+R3
+R4
+R5
+R6
+Z35 8/home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_window_tb.vhd
+Z36 F/home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_window_tb.vhd
+l0
+L13
+V9WA^:JO9PXKc@IZ?ANMC_3
+!s100 0[_85ZW>WjnA5bncYnajQ0
+R9
+32
+!i10b 1
+Z37 !s108 1577939174.266670
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_window_tb.vhd|
+Z39 !s107 /home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_window_tb.vhd|
+R13
+R14
+Abehavioral
+R2
+R3
+R4
+R5
+Z40 DEx4 work 17 generic_window_tb 0 22 9WA^:JO9PXKc@IZ?ANMC_3
+l68
+L17
+V2KCYF8@zkVKP7iCdW<R0Q0
+!s100 0]^DHCJejSczzdcAN^lOX0
+R9
+32
+!i10b 1
+R37
+R38
+R39
+R13
+R14
+Pmorph_filter
+R3
+R2
+R4
+R5
+R1
+R6
+R15
+R16
+l0
+L28
+VX20n?TjH5G3`YJdg46V_:0
+R9
+32
+b1
+R17
+R18
+R19
+R13
+R14
+!s100 Fbm3dj^lzUO]KjPm:ofmj0
+!i10b 1
+Bbody
+R21
+R3
+R2
+R4
+R5
+l0
+L48
+VVPQ;U05TgRb2A^j_i?H7L0
+!s100 inbhZPUI0cTgU:NhM`03h2
+R9
+32
+R17
+R18
+R19
+R13
+R14
+nbody
+!i10b 1
+Psum_std_logic_vector_bits
+R21
+R2
+R22
+R3
+R4
+R5
+R1
+R6
+R23
+R24
+l0
+L17
+VTcfoM7Q_I7`fBTe<0:h1G0
+R9
+32
+b1
+R25
+R26
+R27
+R13
+R14
+!s100 j`:`l`eJ2^`]F1B7JMf743
+!i10b 1
+Bbody
+R20
+R21
+R2
+R22
+R3
+R4
+R5
+l0
+L22
+V48;6NnO3K3GO4eb`Ym16X2
+R9
+32
+R25
+R26
+R27
+R13
+R14
+nbody
+!s100 iS3[=mR8[jblVjEhJDP:o1
+!i10b 1

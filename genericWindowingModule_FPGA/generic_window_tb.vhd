@@ -60,6 +60,7 @@ architecture Behavioral of generic_window_tb is
   signal pixel        : std_logic_vector(BITS_PER_PIX - 1 downto 0) := (others => '0');
   signal control_sigs : std_logic_vector(BITS_CNTL - 1 downto 0)    := (others => '0');
   signal pixel_count  : unsigned(ROW_MSB + COL_MSB + 1 downto 0)    := (others => '0');
+  signal row_count    : unsigned(8 downto 0)                        := (others => '0');
 
   constant clk_half : time := 5ns;
   constant clk_t    : time := 2*clk_half; -- 100MHz
@@ -97,7 +98,7 @@ begin
     rst_n        <= '0'; wait for 5*clk_t;
     rst_n        <= '1'; wait for 5*clk_t;
     rst_good     <= '1';
-    wait until (pixel_count = NUM_PIX);
+    wait until (pixel_count = NUM_PIX + WIN_LEN**2 + 1);
     report "end of simulation"
     severity FAILURE;
   end process;
@@ -108,11 +109,13 @@ begin
   -- 10 = start new screen
   -- 01 = end current screen
   process(clk)
+    variable row_cnt : integer := 0;
   begin
     if (rst_n = '0' or rst_good = '0') then
       pixel         <= (others => '0');
       control_sigs  <= (others => '0');
       pixel_count   <= (others => '0');
+      row_count     <= (others => '0');
     elsif (rising_edge(clk) and rst_good = '1') then
       if (pixel_count < NUM_PIX) then
         pixel_count <= pixel_count + 1;
@@ -127,9 +130,16 @@ begin
         else
           pixel <= (others => '0');
         end if;
+        if ((pixel_count mod IMAGE_HEIGHT) = 0 and pixel_count /= 0) then
+          report "row " & integer'image(row_cnt) & " done"
+          severity NOTE;
+          row_count <= row_count + 1;
+          row_cnt   := to_integer(row_count);
+        end if;
       elsif (pixel_count = NUM_PIX - 1) then
-        control_sigs  <= "01";
         pixel <= (others => '0');
+      elsif (pixel_count = NUM_PIX + WIN_LEN**2) then
+        control_sigs  <= "01";
       end if;
     end if;
   end process;

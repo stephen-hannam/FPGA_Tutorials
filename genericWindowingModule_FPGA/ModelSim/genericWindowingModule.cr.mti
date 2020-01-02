@@ -1,4 +1,27 @@
-/home/srh/Projects/Tutorials/genericWindowingModule_FPGA/generic_window_pkg.vhd {1 {vcom -work work -2002 -explicit /home/srh/Projects/Tutorials/genericWindowingModule_FPGA/generic_window_pkg.vhd
+/home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_window.vhd {1 {vcom -work work -2002 -explicit /home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_window.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package MATH_REAL
+-- Loading package gen_win_types
+-- Loading package morph_filter
+-- Compiling entity generic_window
+-- Compiling architecture Behavioral of generic_window
+
+} {} {}} /home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_window_tb.vhd {2 {vcom -work work -2002 -explicit /home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_window_tb.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package MATH_REAL
+-- Compiling entity generic_window_tb
+-- Compiling architecture Behavioral of generic_window_tb
+** Warning: [4] /home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_window_tb.vhd(65): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+
+} {} {}} /home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_window_pkg.vhd {1 {vcom -work work -2002 -explicit /home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_window_pkg.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -10,7 +33,7 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling package body morph_filter
 -- Loading package morph_filter
 
-} {} {}} /home/srh/Projects/Tutorials/genericWindowingModule_FPGA/FIFO_win.vhd {1 {vcom -work work -2002 -explicit /home/srh/Projects/Tutorials/genericWindowingModule_FPGA/FIFO_win.vhd
+} {} {}} /home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/FIFO_win.vhd {1 {vcom -work work -2002 -explicit /home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/FIFO_win.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -20,18 +43,7 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity FIFO_win
 -- Compiling architecture Behavioral of FIFO_win
 
-} {} {}} /home/srh/Projects/Tutorials/genericWindowingModule_FPGA/generic_window_tb.vhd {2 {vcom -work work -2002 -explicit /home/srh/Projects/Tutorials/genericWindowingModule_FPGA/generic_window_tb.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package MATH_REAL
--- Compiling entity generic_window_tb
--- Compiling architecture Behavioral of generic_window_tb
-** Warning: [4] /home/srh/Projects/Tutorials/genericWindowingModule_FPGA/generic_window_tb.vhd(64): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-
-} {} {}} /home/srh/Projects/Tutorials/genericWindowingModule_FPGA/generic_rows.vhd {1 {vcom -work work -2002 -explicit /home/srh/Projects/Tutorials/genericWindowingModule_FPGA/generic_rows.vhd
+} {} {}} /home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_rows.vhd {1 {vcom -work work -2002 -explicit /home/srh/Projects/FPGA_Tutorials/genericWindowingModule_FPGA/generic_rows.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -46,17 +58,5 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package sum_std_logic_vector_bits
 -- Compiling entity generic_rows
 -- Compiling architecture Behavioral of generic_rows
-
-} {} {}} /home/srh/Projects/Tutorials/genericWindowingModule_FPGA/generic_window.vhd {1 {vcom -work work -2002 -explicit /home/srh/Projects/Tutorials/genericWindowingModule_FPGA/generic_window.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package MATH_REAL
--- Loading package gen_win_types
--- Loading package morph_filter
--- Compiling entity generic_window
--- Compiling architecture Behavioral of generic_window
 
 } {} {}}
