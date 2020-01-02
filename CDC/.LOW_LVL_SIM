@@ -1,0 +1,5 @@
+construct in verilog the DFFs structurally out of NAND gates as per what you have there in the LogiSim get-up for sync DFFs...
+
+then, run RTL sim,
+
+then, run a post synth or post-impl sim which includes prop and contam delays

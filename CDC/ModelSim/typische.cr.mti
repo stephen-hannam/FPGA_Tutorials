@@ -1,0 +1,22 @@
+/home/srh/Projects/Tutorials/CDC/ModelSim/typische_mcp_sc.sv {1 {vlog -work work -sv /home/srh/Projects/Tutorials/CDC/ModelSim/typische_mcp_sc.sv
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module typische_mcp_sc
+
+Top level modules:
+	typische_mcp_sc
+
+} {} {}} /home/srh/Projects/Tutorials/CDC/ModelSim/typische_mcp_mgc.sv {1 {vlog -work work -sv /home/srh/Projects/Tutorials/CDC/ModelSim/typische_mcp_mgc.sv
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module typische_mcp_mgc
+
+Top level modules:
+	typische_mcp_mgc
+
+} {} {}} /home/srh/Projects/Tutorials/CDC/ModelSim/typische_tb.sv {1 {vlog -work work -sv /home/srh/Projects/Tutorials/CDC/ModelSim/typische_tb.sv
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module typische_tb
+
+Top level modules:
+	typische_tb
+
+} {} {}}

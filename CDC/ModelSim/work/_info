@@ -1,0 +1,71 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/srh
+vtypische_mcp_mgc
+Z1 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
+Z2 !s100 5DCo7J1f`gb;iJ6ldASUU2
+Z3 IGJN2<GlN7o0z[EoLgm^:L2
+Z4 Vh<[<j?7ek3a>bn57lTBEO0
+Z5 !s105 typische_mcp_mgc_sv_unit
+S1
+Z6 d/home/srh/Projects/FPGA_Tutorials/CDC/ModelSim
+Z7 w1577217660
+Z8 8/home/srh/Projects/FPGA_Tutorials/CDC/ModelSim/typische_mcp_mgc.sv
+Z9 F/home/srh/Projects/FPGA_Tutorials/CDC/ModelSim/typische_mcp_mgc.sv
+L0 6
+Z10 OV;L;10.1d;51
+r1
+31
+Z11 !s90 -reportprogress|300|-work|work|-sv|/home/srh/Projects/FPGA_Tutorials/CDC/ModelSim/typische_mcp_mgc.sv|
+Z12 o-work work -sv -O0
+Z13 !s108 1577649874.676786
+Z14 !s107 /home/srh/Projects/FPGA_Tutorials/CDC/ModelSim/typische_mcp_mgc.sv|
+!i10b 1
+!s85 0
+!s101 -O0
+vtypische_mcp_sc
+R1
+Z15 !s100 ^AR=[<[_bG8HHRl_FZN=h3
+Z16 IFdH[kInO3Wz6I<0R[QKok1
+Z17 Vl9d959@znjhE2T9O;hGD^0
+Z18 !s105 typische_mcp_sc_sv_unit
+S1
+R6
+R7
+Z19 8/home/srh/Projects/FPGA_Tutorials/CDC/ModelSim/typische_mcp_sc.sv
+Z20 F/home/srh/Projects/FPGA_Tutorials/CDC/ModelSim/typische_mcp_sc.sv
+L0 6
+R10
+r1
+31
+Z21 !s90 -reportprogress|300|-work|work|-sv|/home/srh/Projects/FPGA_Tutorials/CDC/ModelSim/typische_mcp_sc.sv|
+R12
+!i10b 1
+!s85 0
+Z22 !s108 1577649874.732169
+Z23 !s107 /home/srh/Projects/FPGA_Tutorials/CDC/ModelSim/typische_mcp_sc.sv|
+!s101 -O0
+vtypische_tb
+R1
+!i10b 1
+!s100 JSf5`ZUS6C7Q^QZMbWE<K3
+IC2hE:0^<o297f3V4^8ZnP2
+VVoVFReP:18UPehKV0GhT41
+Z24 !s105 typische_tb_sv_unit
+S1
+R6
+w1577649837
+Z25 8/home/srh/Projects/FPGA_Tutorials/CDC/ModelSim/typische_tb.sv
+Z26 F/home/srh/Projects/FPGA_Tutorials/CDC/ModelSim/typische_tb.sv
+L0 5
+R10
+r1
+!s85 0
+31
+!s108 1577649874.758142
+!s107 utils.vh|/home/srh/Projects/FPGA_Tutorials/CDC/ModelSim/typische_tb.sv|
+Z27 !s90 -reportprogress|300|-work|work|-sv|/home/srh/Projects/FPGA_Tutorials/CDC/ModelSim/typische_tb.sv|
+!s101 -O0
+R12
