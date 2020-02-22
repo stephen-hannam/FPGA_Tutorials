@@ -1,5 +1,3 @@
-`include "utils.vh"
-
 module arith_reduce_ones_veri
   #(
     parameter INPUT_WIDTH = 4,
