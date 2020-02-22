@@ -2,9 +2,9 @@
 ;
 ; All Rights Reserved.
 ;
-; THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION WHICH IS THE PROPERTY OF 
+; THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION WHICH IS THE PROPERTY OF
 ; MENTOR GRAPHICS CORPORATION OR ITS LICENSORS AND IS SUBJECT TO LICENSE TERMS.
-;   
+;
 
 [Library]
 std = $MODEL_TECH/../std
@@ -135,7 +135,7 @@ twentynm_hip_ver = $MODEL_TECH/../altera/verilog/twentynm_hip
 
 work = work
 [vcom]
-; VHDL93 variable selects language version as the default. 
+; VHDL93 variable selects language version as the default.
 ; Default is VHDL-2002.
 ; Value of 0 or 1987 for VHDL-1987.
 ; Value of 1 or 1993 for VHDL-1993.
@@ -278,7 +278,7 @@ IterationLimit = 5000
 BreakOnAssertion = 3
 
 ; Assertion Message Format
-; %S - Severity Level 
+; %S - Severity Level
 ; %R - Report Message
 ; %T - Time of assertion
 ; %D - Delta
@@ -429,10 +429,10 @@ ConcurrentFileLimit = 40
 ; description of a message.
 
 ; Control transcripting of elaboration/runtime messages.
-; The default is to have messages appear in the transcript and 
+; The default is to have messages appear in the transcript and
 ; recorded in the wlf file (messages that are recorded in the
 ; wlf file can be viewed in the MsgViewer).  The other settings
-; are to send messages only to the transcript or only to the 
+; are to send messages only to the transcript or only to the
 ; wlf file.  The valid values are
 ;    both  {default}
 ;    tran  {transcript only}
@@ -448,16 +448,16 @@ Project_Version = 6
 Project_DefaultLib = work
 Project_SortMethod = unused
 Project_Files_Count = 5
-Project_File_0 = /home/srh/Projects/Tutorials/CDC/ModelSim/typische_mcp_sc.sv
-Project_File_P_0 = cover_toggle 0 vlog_protect 0 file_type systemverilog group_id 0 cover_exttoggle 0 cover_nofec 0 cover_cond 0 vlog_1995compat SV vlog_nodebug 0 folder {Top Level} cover_branch 0 cover_fsm 0 last_compile 1577217660 vlog_noload 0 cover_excludedefault 0 vlog_enable0In 0 vlog_disableopt 0 cover_covercells 0 voptflow 1 cover_optlevel 3 vlog_showsource 0 vlog_hazard 0 toggle - vlog_0InOptions {} ood 0 cover_noshort 0 vlog_upper 0 compile_to work vlog_options {} compile_order 1 cover_expr 0 dont_compile 0 cover_stmt 0
-Project_File_1 = /home/srh/Projects/FPGA_Tutorials/CDC/ModelSim/wave_mcp_sc.do
-Project_File_P_1 = compile_order -1 last_compile 0 folder {Top Level} dont_compile 1 group_id 0 file_type tcl ood 1
-Project_File_2 = /home/srh/Projects/Tutorials/CDC/ModelSim/typische_mcp_mgc.sv
-Project_File_P_2 = cover_toggle 0 vlog_protect 0 file_type systemverilog group_id 0 cover_exttoggle 0 cover_nofec 0 cover_cond 0 vlog_1995compat SV vlog_nodebug 0 folder {Top Level} cover_branch 0 cover_fsm 0 last_compile 1577217660 vlog_noload 0 cover_excludedefault 0 vlog_enable0In 0 vlog_disableopt 0 cover_covercells 0 voptflow 1 cover_optlevel 3 vlog_showsource 0 vlog_hazard 0 toggle - vlog_0InOptions {} ood 0 cover_noshort 0 vlog_upper 0 compile_to work vlog_options {} compile_order 0 cover_expr 0 dont_compile 0 cover_stmt 0
-Project_File_3 = /home/srh/Projects/Tutorials/CDC/ModelSim/typische_tb.sv
-Project_File_P_3 = cover_toggle 0 vlog_protect 0 file_type systemverilog group_id 0 cover_exttoggle 0 cover_nofec 0 cover_cond 0 vlog_1995compat SV vlog_nodebug 0 vlog_noload 0 cover_branch 0 folder {Top Level} last_compile 1577649837 cover_fsm 0 cover_excludedefault 0 vlog_enable0In 0 vlog_disableopt 0 cover_covercells 0 voptflow 1 cover_optlevel 3 vlog_showsource 0 vlog_hazard 0 toggle - vlog_0InOptions {} ood 0 cover_noshort 0 vlog_upper 0 compile_to work vlog_options {} compile_order 2 cover_expr 0 dont_compile 0 cover_stmt 0
-Project_File_4 = /home/srh/Projects/FPGA_Tutorials/CDC/ModelSim/wave_mcp_mgc.do
-Project_File_P_4 = compile_order -1 last_compile 0 folder {Top Level} dont_compile 1 group_id 0 file_type tcl ood 1
+Project_File_0 = /home/srh/Projects/FPGA_Tutorials/CDC/ModelSim/wave_mcp_sc.do
+Project_File_P_0 = compile_order -1 last_compile 0 folder {Top Level} dont_compile 1 group_id 0 file_type tcl ood 1
+Project_File_1 = /home/srh/Projects/FPGA_Tutorials/CDC/ModelSim/typische_mcp_sc.sv
+Project_File_P_1 = cover_toggle 0 vlog_protect 0 file_type systemverilog group_id 0 cover_exttoggle 0 cover_nofec 0 cover_cond 0 vlog_1995compat SV vlog_nodebug 0 cover_fsm 0 cover_branch 0 vlog_noload 0 last_compile 1582398896 folder {Top Level} cover_excludedefault 0 vlog_enable0In 0 vlog_disableopt 0 cover_covercells 0 voptflow 1 cover_optlevel 3 vlog_showsource 0 vlog_hazard 0 toggle - vlog_0InOptions {} ood 0 cover_noshort 0 vlog_upper 0 compile_to work vlog_options {} compile_order 1 cover_expr 0 dont_compile 0 cover_stmt 0
+Project_File_2 = /home/srh/Projects/FPGA_Tutorials/CDC/ModelSim/wave_mcp_mgc.do
+Project_File_P_2 = compile_order -1 last_compile 0 folder {Top Level} dont_compile 1 group_id 0 file_type tcl ood 1
+Project_File_3 = /home/srh/Projects/FPGA_Tutorials/CDC/ModelSim/typische_tb.sv
+Project_File_P_3 = cover_toggle 0 vlog_protect 0 file_type systemverilog group_id 0 cover_exttoggle 0 cover_nofec 0 cover_cond 0 vlog_1995compat SV vlog_nodebug 0 folder {Top Level} cover_branch 0 cover_fsm 0 last_compile 1582398896 vlog_noload 0 cover_excludedefault 0 vlog_enable0In 0 vlog_disableopt 0 cover_covercells 0 voptflow 1 cover_optlevel 3 vlog_showsource 0 vlog_hazard 0 toggle - vlog_0InOptions {} ood 0 cover_noshort 0 vlog_upper 0 compile_to work vlog_options {} compile_order 2 cover_expr 0 dont_compile 0 cover_stmt 0
+Project_File_4 = /home/srh/Projects/FPGA_Tutorials/CDC/ModelSim/typische_mcp_mgc.sv
+Project_File_P_4 = cover_toggle 0 vlog_protect 0 file_type systemverilog group_id 0 cover_exttoggle 0 cover_nofec 0 cover_cond 0 vlog_1995compat SV vlog_nodebug 0 folder {Top Level} cover_branch 0 cover_fsm 0 last_compile 1582401051 vlog_noload 0 cover_excludedefault 0 vlog_enable0In 0 vlog_disableopt 0 cover_covercells 0 voptflow 1 cover_optlevel 3 vlog_showsource 0 vlog_hazard 0 toggle - vlog_0InOptions {} ood 0 cover_noshort 0 vlog_upper 0 compile_to work vlog_options {} compile_order 0 cover_expr 0 dont_compile 0 cover_stmt 0
 Project_Sim_Count = 1
 Project_Sim_0 = Simulation 1
 Project_Sim_P_0 = timing default -t default -sdfnoerror 0 -nofileshare 0 +no_pulse_msg 0 -Lf {} Generics {} +notimingchecks 0 ok 1 folder {Top Level} +pulse_e {} additional_dus work.typische_tb -assertfile {} -std_output {} -L {} -nopsl 0 -nosva 0 +pulse_r {} -absentisempty 0 -assertcover 0 -multisource_delay {} OtherArgs {} -vital2.2b 0 is_vopt_flow 0 -memprof 0 -noglitch 0 -0in_options {} selected_du {} -sdf {} -hazards 0 -0in 0 vopt_env 1 -coverage 0 +plusarg {} -assertdebug 0 -wlf {} -sdfnowarn 0 -std_input {}

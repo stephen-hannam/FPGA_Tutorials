@@ -10,8 +10,8 @@ entity typische_mcp_mgc is
         clk_b           : in     vl_logic;
         cntl_a          : in     vl_logic;
         data_a          : in     vl_logic_vector;
-        data_b          : out    vl_logic_vector;
-        cntl_b          : out    vl_logic
+        cntl_b          : out    vl_logic;
+        data_b          : out    vl_logic_vector
     );
     attribute mti_svvh_generic_type : integer;
     attribute mti_svvh_generic_type of WIDTH : constant is 1;

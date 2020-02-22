@@ -12,8 +12,8 @@ module typische_mcp_mgc // mcp_mgc = multi-cycle path & minimal gray counters
   input                   clk_b,
   input                   cntl_a,
   input       [WIDTH-1:0] data_a,
-  output reg  [WIDTH-1:0] data_b,
-  output reg              cntl_b
+  output reg              cntl_b,
+  output reg  [WIDTH-1:0] data_b
 );
 
   localparam SLEN = 2; // sync chain length
