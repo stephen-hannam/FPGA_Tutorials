@@ -24,24 +24,27 @@ begin
   scan_reduce : process(arr_in)
     -- PLO: variables and use in loops + multi-driven nets
     variable v_cnt      : unsigned(CNT_MSB downto 0)     := (others => '0');
-    variable v_cum_cnt  : unsigned(CUM_CNT_MSB downto 0) := (others => '0');
+    variable v_cum_sum  : unsigned(CUM_CNT_MSB downto 0) := (others => '0');
   begin
     cnt_out     <= std_logic_vector(v_cnt);
-    cum_cnt_out <= std_logic_vector(v_cum_cnt);
-    cum_cnt_out <= (others => '0');
-    for i in natural range 0 to INPUT_MSB loop
+    cum_cnt_out <= std_logic_vector(v_cum_sum);
+    v_cnt := (others => '0');
+    for i in natural range INPUT_MSB downto 1 loop
+      -- cnt_out  <= cnt_out + arr_in(i); -- why won't this work? ans: multi-driven
       if arr_in(i) = '1' then
         v_cnt := v_cnt + 1;
-      end if;
-      -- cnt_out  <= cnt_out + arr_in(i); -- why won't this work?
-      if arr_in(i) = '1' then
-        if i = 0 then
-          v_cum_cnt(0 to CUM_UPP) := (CUM_UPP => '1', others => '0');
-        else
-          v_cum_cnt(i*CUM_UPP to (i+1)*CUM_UPP) := v_cum_cnt((i-1)*CUM_UPP to i*CUM_UPP) + 1;
-        end if;
+        v_cum_sum((i+1)*CUM_UPP-1 downto i*CUM_UPP) := v_cum_sum(i*CUM_UPP-1 downto (i-1)*CUM_UPP) + 1;
+      else
+        v_cum_sum((i+1)*CUM_UPP-1 downto i*CUM_UPP) := (others => '0');
       end if;
     end loop;
+
+    if arr_in(0) = '1' then
+      v_cnt := v_cnt + 1;
+      v_cum_sum(CUM_UPP-1 downto 0) := (0 => '1', others => '0');
+    else
+      v_cum_sum(CUM_UPP-1 downto 0) := (others => '0');
+    end if;
 
   end process;
 end BEH;

@@ -49,20 +49,8 @@ architecture RTL of fpga_top is
 	end component;
 
   constant NUM_SW  : natural := 4;
-  constant NUM_SWW : natural := positive(floor(log2(real(NUM_SW)))); -- 2
-
-  constant A : natural := (NUM_SWW+1)*(NUM_SW+1)*NUM_SWW - 1; -- 3*5*2-1 = 29
-  constant B : natural := A - NUM_SWW;                        --           27
-  constant C : natural := B - 1;                              --           26
-  constant D : natural := C - (NUM_SWW+1)*NUM_SW + 1;         -- 26-12+1 = 15
-  constant E : natural := D - 1;                              --           14
-  constant F : natural := E - NUM_SWW;                        --           12
-  constant G : natural := F - 1;                              --           11
-  constant H : natural := G - (NUM_SWW+1)*NUM_SW + 1;         -- 11-12+1 = 0
-
-  subtype RES_IDX is natural range 0 to A;
-  type ABC is array (0 to 7) of RES_IDX;
-  constant RES_IDXS : ABC := (A,B,C,D,E,F,G,H);
+  constant NUM_SWW : natural := positive(ceil(log2(real(NUM_SW)))); -- 2
+  constant CUM_SWW : natural := (NUM_SWW+1)*NUM_SW;
 
   -- mixed language: verilog priority encoder src
   component arith_reduce_ones_veri
@@ -75,21 +63,21 @@ architecture RTL of fpga_top is
     -- x : inout std_logic;
       arr_in      : in  std_logic_vector(NUM_SW-1 downto 0);
       cnt_out     : out std_logic_vector(NUM_SWW downto 0);
-      cum_cnt_out : out std_logic_vector((NUM_SWW+1)*NUM_SW - 1 downto 0)
+      cum_cnt_out : out std_logic_vector(CUM_SWW-1 downto 0)
     );
   end component;
 
 	--OLED
-	type states_oled is ( Idle, SetupScreen, SendReq, WaitRsp, WRITE_SAMPLE);
+	type states_oled is ( Idle, SetupScreen, SendReq, WaitRsp, WR_SUM_1, WR_SUM_2, WR_CUMSUM_1, WR_CUMSUM_2 );
 
 	signal state_oled      : states_oled;
 	signal state_oled_next : states_oled;
 
 	constant OledSetupArray : ArrayOledSetup(0 to 16) := human2ArrOled(
      (
-        (6,0,'s'),(7,0,'u'),(8,0,'m'),(10,0,'c'),(11,0,'u'),(12,0,'m'),(13,0,'s'),(14,0,'u'),(15,0,'m'),
+        (5,0,'s'),(6,0,'u'),(7,0,'m'),(9,0,'c'),(10,0,'u'),(11,0,'m'),(12,0,'s'),(13,0,'u'),(14,0,'m'),
         (0,1,'V'),(1,1,'H'),(2,1,'D'),(3,1,'L'),
-    	(0,2,'v'),(1,2,'e'),(2,2,'r'),(3,2,'i')
+    	  (0,2,'v'),(1,2,'e'),(2,2,'r'),(3,2,'i')
      ));
 
 	signal oled_count    : integer;
@@ -102,9 +90,12 @@ architecture RTL of fpga_top is
   signal clk_36M  : std_logic := '0';
   signal nrst_n   : std_logic := '0';
 
-  signal dsw      : std_logic_vector(NUM_SW-1 downto 0) := (others => '0');
-  signal dsw_prev : std_logic_vector(NUM_SW-1 downto 0) := (others => '0');
-  signal results  : std_logic_vector(A downto 0) := (others => '0');
+  signal dsw        : std_logic_vector(NUM_SW-1 downto 0) := (others => '0');
+  signal dsw_prev   : std_logic_vector(NUM_SW-1 downto 0) := (others => '0');
+  signal sum_1      : std_logic_vector(NUM_SWW downto 0) := (others => '0');
+  signal sum_2      : std_logic_vector(NUM_SWW downto 0) := (others => '0');
+  signal cum_sum_1  : std_logic_vector(CUM_SWW-1 downto 0) := (others => '0');
+  signal cum_sum_2  : std_logic_vector(CUM_SWW-1 downto 0) := (others => '0');
 
 begin
 
@@ -160,8 +151,8 @@ REDUCE_ONES_vhdl : entity work.arith_reduce_ones_vhdl
   )
   port map(
     arr_in      => dsw,
-    cnt_out     => results(A downto B),
-    cum_cnt_out => results(C downto D)
+    cnt_out     => sum_1,
+    cum_cnt_out => cum_sum_1
   );
 --#################################################################################################
 --
@@ -174,8 +165,8 @@ REDUCE_ONES_veri : arith_reduce_ones_veri
   )
   port map(
     arr_in      => dsw,
-    cnt_out     => results(E downto F),
-    cum_cnt_out => results(G downto H)
+    cnt_out     => sum_2,
+    cum_cnt_out => cum_sum_2
   );
 --#################################################################################################
 --
@@ -211,8 +202,7 @@ PM_OLED : entity work.PmodOLEDCtrl
 
 p_setup_oled : process ( clk_100M, rst_n )
 
-		variable hex_digit	: STD_LOGIC_VECTOR(03 downto 00);
-    variable cnt_digit  : std_logic_vector(4 downto 0);
+		variable hex_digit	: STD_LOGIC_VECTOR(3 downto 0) := (others => '0');
 
 	begin
 		if ( rst_n = '0' ) then
@@ -246,30 +236,21 @@ p_setup_oled : process ( clk_100M, rst_n )
 				WHEN IDLE =>
 
 					if (dsw_prev /= dsw) then
-						state_oled       <= WRITE_SAMPLE;
+						state_oled       <= WR_SUM_1;
 						state_oled_next  <= IDLE;
             dsw_prev         <= dsw;
 						oled_count       <= 0;
 					end if;
 
-				WHEN WRITE_SAMPLE =>
+				WHEN WR_SUM_1 =>
         --#################################################################################################
-        --
-        -- 
-        --
+        --  6,1
         --#################################################################################################
+				  oled_req_addr(07 downto 04)	<= "0101";		--(5,1)
+					oled_req_addr(03 downto 00)	<= "0001";
 
-          if oled_count >  then
-            oled_count <= oled_count + 3;
-            cnt_digit := results(to_integer(to_unsigned(oled_count,cnt_digit'length)) downto to_integer(to_unsigned(oled_count-2,cnt_digit'length)));
-            hex_digit	:= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_digit)),hex_digit'length));
-          else then
-            oled_count <= (others => '0');
-            state      <= IDLE;
-          end if;
-
-					oled_req_addr(07 downto 04)	<= "1000";		--(8,0)
-					oled_req_addr(03 downto 00)	<= "0000";
+          hex_digit(3)          := '0';
+          hex_digit(2 downto 0) := sum_1;
 
         -- below conversion of A or above hex to decimal not needed in priority encoder example, but is being retained for ease of adaptation of code
 					if ( hex_digit <= "1001" ) then
@@ -279,8 +260,83 @@ p_setup_oled : process ( clk_100M, rst_n )
 						oled_req_data	<= "0100" & hex_digit;		--hex_digit-10 + 0x41 which is an A
 					end if;
 
-					state_oled					<= SendReq;
-					state_oled_next			<= IDLE;
+					state_oled      <= SendReq;
+					state_oled_next <= WR_SUM_2;
+
+				WHEN WR_SUM_2 =>
+        --#################################################################################################
+        --  6,2
+        --#################################################################################################
+				  oled_req_addr(07 downto 04)	<= "0101";		--(5,2)
+					oled_req_addr(03 downto 00)	<= "0010";
+
+          hex_digit(3)          := '0';
+          hex_digit(2 downto 0) := sum_2;
+
+        -- below conversion of A or above hex to decimal not needed in priority encoder example, but is being retained for ease of adaptation of code
+					if ( hex_digit <= "1001" ) then
+						oled_req_data	<= "0011" & hex_digit;		--hex_digit + 0x30 which is an 0
+					else
+						hex_digit	:= STD_LOGIC_VECTOR( UNSIGNED(hex_digit) - to_UNSIGNED(9,4) );
+						oled_req_data	<= "0100" & hex_digit;		--hex_digit-10 + 0x41 which is an A
+					end if;
+
+					state_oled      <= SendReq;
+					state_oled_next <= WR_CUMSUM_1;
+
+				WHEN WR_CUMSUM_1 =>
+        --#################################################################################################
+        --  starts at 10,1
+        --#################################################################################################
+
+				  if oled_count < 4 then
+            oled_count <= oled_count + 1;
+            hex_digit(3)          := '0';
+            hex_digit(2 downto 0)	:= cum_sum_1((oled_count+1)*3-1 downto oled_count*3);
+					  oled_req_addr(07 downto 04)	<= std_logic_vector(to_unsigned(9 + oled_count, 4));		--(9+2n,1)
+					  oled_req_addr(03 downto 00)	<= "0001";
+          end if;
+
+        -- below conversion of A or above hex to decimal not needed in priority encoder example, but is being retained for ease of adaptation of code
+					if ( hex_digit <= "1001" ) then
+						oled_req_data	<= "0011" & hex_digit;		--hex_digit + 0x30 which is an 0
+					else
+						hex_digit	:= STD_LOGIC_VECTOR( UNSIGNED(hex_digit) - to_unsigned(9,4) );
+						oled_req_data	<= "0100" & hex_digit;		--hex_digit-10 + 0x41 which is an A
+					end if;
+
+					state_oled      <= SendReq;
+          if oled_count = 4 then
+					  state_oled_next <= WR_CUMSUM_2;
+            oled_count      <= 0;
+          end if;
+
+				WHEN WR_CUMSUM_2 =>
+        --#################################################################################################
+        --  starts at 10,2
+        --#################################################################################################
+
+          if oled_count < 4 then
+            oled_count <= oled_count + 1;
+            hex_digit(3)          := '0';
+            hex_digit(2 downto 0)	:= cum_sum_2((oled_count+1)*3-1 downto oled_count*3);
+					  oled_req_addr(07 downto 04)	<= std_logic_vector(to_unsigned(9 + oled_count, 4));		--(9+2n,2)
+					  oled_req_addr(03 downto 00)	<= "0010";
+          end if;
+
+        -- below conversion of A or above hex to decimal not needed in priority encoder example, but is being retained for ease of adaptation of code
+					if ( hex_digit <= "1001" ) then
+						oled_req_data	<= "0011" & hex_digit;		--hex_digit + 0x30 which is an 0
+					else
+						hex_digit	:= STD_LOGIC_VECTOR( UNSIGNED(hex_digit) - to_UNSIGNED(9,4) );
+						oled_req_data	<= "0100" & hex_digit;		--hex_digit-10 + 0x41 which is an A
+					end if;
+
+					state_oled      <= SendReq;
+          if oled_count = 4 then
+					  state_oled_next <= IDLE;
+            oled_count      <= 0;
+          end if;
 
 				WHEN SendReq =>
 					oled_req   <= '1';
